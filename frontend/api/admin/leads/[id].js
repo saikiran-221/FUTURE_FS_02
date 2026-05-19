@@ -13,16 +13,11 @@ module.exports = async (req, res) => {
 
     if (req.method === 'PATCH') {
       const { status, is_tracked } = req.body;
-
       const updates = { updated_at: new Date() };
       if (status !== undefined) updates.status = status;
       if (is_tracked !== undefined) updates.is_tracked = is_tracked;
 
-      const { error } = await supabase
-        .from('leads')
-        .update(updates)
-        .eq('id', id);
-
+      const { error } = await supabase.from('leads').update(updates).eq('id', id);
       if (error) throw error;
       return res.json({ message: 'Lead updated' });
     }

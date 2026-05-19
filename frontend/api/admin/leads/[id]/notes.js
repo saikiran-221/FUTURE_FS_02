@@ -16,10 +16,7 @@ module.exports = async (req, res) => {
   try {
     verifyToken(req);
 
-    const { error } = await supabase
-      .from('notes')
-      .insert([{ lead_id: id, note }]);
-
+    const { error } = await supabase.from('notes').insert([{ lead_id: id, note }]);
     if (error) throw error;
     res.status(201).json({ message: 'Note added' });
   } catch (err) {
