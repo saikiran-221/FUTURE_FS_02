@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { Clock, ShieldPlus, BookOpen, CheckCircle, Mail } from 'lucide-react';
 import LeadList from '../components/LeadList';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000';
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:3000';
 
 
 function Dashboard({ token }) {

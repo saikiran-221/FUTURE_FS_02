@@ -14,7 +14,7 @@ function AdminLogin({ setToken }) {
     e.preventDefault();
     setLoading(true);
     try {
-      const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000';
+      const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:3000';
 
       const response = await axios.post(`${API_BASE}/api/admin/login`, { email, password });
       const { token } = response.data;
